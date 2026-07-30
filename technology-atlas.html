@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An interactive pilot atlas of the CTCN mitigation and adaptation technology taxonomy." />
+  <title>Climate Technology Atlas — Pilot</title>
+  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="atlas.css?v=25" />
+</head>
+<body class="atlas-page">
+  <div class="top-banner atlas-banner"><img src="banner.png" alt=""><div class="climate-clock-panel" data-climate-clock=""><div class="climate-clock-topline"><div class="climate-clock-label">Climate Clock</div><a class="climate-clock-source" href="https://climateclock.world/" rel="noopener" target="_blank">ClimateClock.world ↗</a></div><div class="climate-clock-time" aria-label="Climate countdown"><div class="climate-clock-unit"><span class="climate-clock-value" data-clock-value="">--</span><span class="climate-clock-caption" data-clock-caption="">Years</span></div><div class="climate-clock-unit"><span class="climate-clock-value" data-clock-value="">---</span><span class="climate-clock-caption" data-clock-caption="">Days</span></div><div class="climate-clock-unit"><span class="climate-clock-value" data-clock-value="">--</span><span class="climate-clock-caption" data-clock-caption="">Hours</span></div><div class="climate-clock-unit"><span class="climate-clock-value" data-clock-value="">--</span><span class="climate-clock-caption" data-clock-caption="">Minutes</span></div><div class="climate-clock-unit"><span class="climate-clock-value" data-clock-value="">--</span><span class="climate-clock-caption" data-clock-caption="">Seconds</span></div></div><div class="climate-clock-status" aria-live="polite">Loading…</div></div></div>
+<header><nav class="wrap"><a class="brand" href="index.html"><span class="brand-main">STVDIØ</span><span class="brand-name">Luis Guillermo</span></a><div class="nav-right"><div class="nav-links"><a href="index.html#profile">Profile</a><a href="index.html#work">Work</a><a href="index.html#portfolio">Portfolio</a><a href="index.html#tools">Tools</a><a href="index.html#approach">Approach</a><a href="journal.html">Journal</a><a href="news.html">News</a><a href="hobbies.html">Hobbies</a><a href="index.html#contact">Contact</a></div><div class="language-switch" aria-label="Language"><a href="technology-atlas.html" class="active">EN</a><a href="es/atlas-tecnologico.html">ES</a><a href="de/technologieatlas.html">DE</a></div></div><details class="mobile-menu"><summary aria-label="Open navigation"><span class="mobile-menu-icon"></span></summary><div class="mobile-menu-content"><a href="index.html#profile">Profile</a><a href="index.html#work">Work</a><a href="index.html#portfolio">Portfolio</a><a href="index.html#tools">Tools</a><a href="index.html#approach">Approach</a><a href="journal.html">Journal</a><a href="news.html">News</a><a href="hobbies.html">Hobbies</a><a href="index.html#contact">Contact</a><div class="mobile-menu-languages"><a href="technology-atlas.html" class="active">EN</a><a href="es/atlas-tecnologico.html">ES</a><a href="de/technologieatlas.html">DE</a></div></div></details></nav></header>
+
+  <main>
+    <section class="atlas-hero-section">
+      <div class="wrap atlas-hero">
+        <div>
+          <div class="eyebrow">CTCN taxonomy / pilot release</div>
+          <h1>Technology,<br><strong>mapped as a system.</strong></h1>
+          <p class="lead">An interactive reading of climate technologies through taxonomy, technological aspects, material dependencies and geographic supply context.</p>
+        </div>
+        <div class="atlas-hero-note pilot-note"><span class="pilot-badge">PILOT · UNDER REVIEW</span><p>This public pilot is under methodological and technical review. Classifications and analytical descriptions may be refined through sector-specific validation.</p></div></div></section>
+
+    <section class="atlas-interface" id="atlas">
+      <div class="wrap">
+        <div class="atlas-toolbar atlas-search-only" aria-label="Technology search">
+          <label class="filter-field filter-search">
+            <span>Search the complete technology record</span>
+            <input id="searchInput" type="search" placeholder="Technology, lithium, sensors, standards, infrastructure…" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="taxonomy-state-controls" hidden aria-hidden="true">
+          <select id="branchFilter"><option value="">All branches</option></select>
+          <select id="sectorFilter"><option value="">All sectors</option></select>
+          <select id="groupFilter"><option value="">All groups</option></select>
+          <button id="resetFilters" type="button">Reset all</button>
+        </div>
+
+        <div class="active-scope compact-scope">
+          <span class="scope-dot"></span>
+          <span id="scopeText">All 458 records</span>
+        </div>
+
+        <div class="kpi-grid kpi-grid-compact" aria-label="Interactive key indicators">
+          <button class="kpi-card kpi-primary kpi-action" id="visibleKpi" type="button" title="Clear branch, sector and technology-group filters">
+            <span class="kpi-label">Visible records</span>
+            <strong id="visibleCount">458</strong>
+            <small id="visibleShare">100.0% of the full table</small>
+          </button>
+          <button class="kpi-card kpi-action" id="mitigationKpi" type="button" data-kpi-branch="Mitigación" title="Filter by Mitigation">
+            <span class="kpi-label">Mitigation</span>
+            <strong id="mitigationCount">263</strong>
+            <small id="mitigationShare">57.4% of visible records</small>
+          </button>
+          <button class="kpi-card kpi-action" id="adaptationKpi" type="button" data-kpi-branch="Adaptación" title="Filter by Adaptation">
+            <span class="kpi-label">Adaptation</span>
+            <strong id="adaptationCount">195</strong>
+            <small id="adaptationShare">42.6% of visible records</small>
+          </button>
+          <button class="kpi-card kpi-action" id="sectorsKpi" type="button" title="Go to the sector filter">
+            <span class="kpi-label">Sectors represented</span>
+            <strong id="sectorCount">15</strong>
+            <small>click to review sector options</small>
+          </button>
+        </div>
+
+        <div id="activeFilters" class="active-filters" aria-live="polite"></div>
+
+        <div class="atlas-grid atlas-grid-main">
+          <article class="data-panel sectors-panel" id="sectorTreemapPanel">
+            <div class="panel-heading">
+              <div>
+                <div class="section-number">02 / Taxonomy</div>
+                <h2>Sector distribution of the active scope</h2>
+                <p class="panel-intro sector-chart-intro">Each rectangle represents a sector. Its area shows that sector’s share of the active branch and search scope.</p>
+              </div>
+              <div class="panel-actions sector-panel-actions">
+                <div class="denominator-note">Denominator: <strong id="sectorDenominator">458</strong> records</div>
+                <div class="treemap-view-controls" role="group" aria-label="Treemap display controls">
+                  <button id="toggleTreemapSize" class="panel-clear treemap-size-toggle" type="button" aria-pressed="false">Expand map</button>
+                  <button id="clearSectorChart" class="panel-clear" type="button" hidden>Clear sector filter</button>
+                </div>
+              </div>
+            </div>
+            <div id="sectorBars" class="sector-treemap" role="list" aria-label="Interactive sector treemap"></div>
+            <p id="sectorChartCaption" class="chart-caption">The treemap sectors add up to 100% of the active scope. Click a sector to filter; click it again to remove the filter.</p>
+          </article>
+        </div>
+
+        <div class="technology-group-panel" id="taxonomyFilters" aria-label="Technology-group filter">
+          <div class="technology-group-heading">
+            <div>
+              <div class="section-number">03 / Technology group</div>
+              <h2>Refine the Explorer by technology group</h2>
+            </div>
+            <p>Choose one group. Select it again to clear the filter.</p>
+          </div>
+          <div class="taxonomy-option-list taxonomy-option-list-groups" id="groupOptions"></div>
+        </div>
+
+        <div class="explorer-layout">
+          <article class="data-panel explorer-panel">
+            <div class="panel-heading explorer-heading">
+              <div>
+                <div class="section-number">04 / Explorer</div>
+                <h2>Technology records</h2>
+                <p class="panel-intro">The classifications are shown here as attributes of each technology, not as primary dashboard filters.</p>
+              </div>
+              <div class="table-controls">
+                <span id="resultRange">1–12 of 458</span>
+                <button id="prevPage" type="button" aria-label="Previous page">←</button>
+                <button id="nextPage" type="button" aria-label="Next page">→</button>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="technology-table">
+                <colgroup>
+                  <col class="col-technology" />
+                  <col class="col-branch" />
+                  <col class="col-sector" />
+                  <col class="col-group" />
+                  <col class="col-icon" />
+                  <col class="col-icon" />
+                  <col class="col-icon" />
+                  <col class="col-icon" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Technology</th>
+                    <th>Branch</th>
+                    <th>Sector</th>
+                    <th>Technology group</th>
+                    <th class="icon-column-heading"><span>Applicability</span></th>
+                    <th class="icon-column-heading"><span>Nature</span></th>
+                    <th class="icon-column-heading"><span>Form</span></th>
+                    <th class="icon-column-heading"><span>Environmental role</span></th>
+                  </tr>
+                </thead>
+                <tbody id="technologyRows"></tbody>
+              </table>
+            </div>
+            <details class="classification-legend" aria-label="Complete technology classification icon guide">
+              <summary class="classification-legend-summary">
+                <span class="legend-summary-copy">
+                  <span class="section-number">Icon guide</span>
+                  <span>View all classification symbols and subcategories</span>
+                </span>
+                <span class="legend-summary-action" aria-hidden="true">Open guide</span>
+              </summary>
+              <div class="classification-legend-body">
+                <p class="classification-legend-note">Every symbol corresponds to one exact subcategory in the source table. Hover or focus an icon in the Explorer to read the assigned value.</p>
+                <div class="classification-family-grid">
+                <section class="legend-family">
+                  <h3>Applicability · Flexible / fixed</h3>
+                  <p class="legend-family-description">Degree to which the technology can be adapted to different scales, contexts and applications.</p>
+                  <div class="legend-options">
+                    <div class="legend-option"><span class="mini-classification state-flexible">F</span><p><strong>Flexible</strong><span>Can be configured for different scales and applications.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-fixed">FX</span><p><strong>Mainly fixed</strong><span>Depends principally on a specific physical configuration.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-mixed">MX</span><p><strong>Mixed</strong><span>Flexible base with technology-specific implementation.</span></p></div>
+                  </div>
+                </section>
+
+                <section class="legend-family">
+                  <h3>Nature · Hard / soft</h3>
+                  <p class="legend-family-description">Relative weight of hard and soft technological components.</p>
+                  <div class="legend-options">
+                    <div class="legend-option"><span class="mini-classification state-hard-led">H+</span><p><strong>Mainly hard</strong><span>Physical components predominate, with a soft dimension.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-soft-led">S+</span><p><strong>Mainly soft</strong><span>Knowledge and organisational components predominate, with physical support.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-hard-soft">H/S</span><p><strong>Hard and soft</strong><span>Both dimensions are integral to the technology.</span></p></div>
+                  </div>
+                </section>
+
+                <section class="legend-family">
+                  <h3>Form · Equipment / operation / product</h3>
+                  <p class="legend-family-description">Equipment, operation, product, service, or a combined form.</p>
+                  <div class="legend-options">
+                    <div class="legend-option"><span class="mini-classification state-equipment-operation">E/O</span><p><strong>Equipment and operation</strong><span>Physical equipment and its operating process are inseparable.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-operation-information">O/I</span><p><strong>Operation and information product/service</strong><span>Produces or delivers information through an operating process.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-operation-service">O/S</span><p><strong>Operation and service</strong><span>Implemented primarily through an operating service.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-product-equipment">P/E</span><p><strong>Product and equipment</strong><span>Product and equipment predominate; operation is complementary.</span></p></div>
+                  </div>
+                </section>
+
+                <section class="legend-family">
+                  <h3>Environmental role · Clean technology</h3>
+                  <p class="legend-family-description">Clean-technology assessment, including conditional and life-cycle caveats.</p>
+                  <div class="legend-options">
+                    <div class="legend-option"><span class="mini-classification state-clean-lifecycle">LC</span><p><strong>Yes, with life-cycle caveat</strong><span>Environmental benefit requires life-cycle verification.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-clean-performance">PC</span><p><strong>Yes, conditional on performance and life cycle</strong><span>Classification depends on achieved performance and full life cycle.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-conditional">C</span><p><strong>Conditional</strong><span>Depends on implementation conditions and system boundaries.</span></p></div>
+                    <div class="legend-option"><span class="mini-classification state-not-necessarily">N</span><p><strong>Not necessarily</strong><span>Climate relevance does not automatically imply clean technology.</span></p></div>
+                  </div>
+                </section>
+                </div>
+              </div>
+            </details>
+          </article>
+          <article class="data-panel detail-panel detail-panel-below" id="technologyDetail">
+            <div class="detail-empty">
+              <span class="detail-index">Select a record</span>
+              <h2>Technology profile</h2>
+              <div class="technology-photo-placeholder"><img src="assets/technologies/placeholder.jpg" alt="Generic technology image placeholder" /></div>
+              <p>Choose a row to inspect its description, the three IIASA aspects with their integrated requirement subindices, and the raw-material supply context. A generic image is used temporarily and will later be replaced with a verified real photograph.</p>
+            </div>
+          </article>
+        </div>      </div>
+    </section>
+
+    <section class="method-section pilot-references" id="method"><div class="wrap"><details open><summary><span>05 / Methodology</span><strong>Sources, scope and limitations</strong></summary><div class="reference-grid"><article><h3>01 / Taxonomy</h3><p>The CTCN document provides the hierarchy of mitigation and adaptation, sectors, technology groups and technologies. Complementary descriptions in this atlas are analytical additions.</p><a href="https://www.ctc-n.org/sites/default/files/resources/ctcn_taxonomy_0.pdf" target="_blank" rel="noopener">CTCN Technology Taxonomy ↗</a></article><article><h3>02 / Technology concept</h3><p>IIASA supports the distinction between hardware, software and orgware used in each technology profile.</p><a href="https://iiasa.ac.at/what-is-technology" target="_blank" rel="noopener">IIASA — What is Technology? ↗</a></article><article><h3>03 / Technology types</h3><p>Complementary educational classifications inform flexible/fixed, hard/soft, equipment/operation/product and clean-technology attributes.</p><a href="https://www.universidadviu.com/int/actualidad/nuestros-expertos/los-tipos-de-tecnologia-mas-representativos-que-debes-conocer" target="_blank" rel="noopener">Universidad Internacional de Valencia ↗</a><a href="https://institutoagricoladepueblobello.edu.co/colegiapp/archivostemas/GUIA%209.%5B25%5D.pdf" target="_blank" rel="noopener">Instituto Agrícola de Pueblo Bello — educational guide ↗</a></article><article><h3>04 / Materials and supply geography</h3><p>USGS, IEA and World Bank sources support the exploratory material and country context. Countries indicate global production or processing leaders, not traceable supplier origin.</p><a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf" target="_blank" rel="noopener">USGS — Mineral Commodity Summaries ↗</a><a href="https://www.iea.org/reports/global-critical-minerals-outlook-2025" target="_blank" rel="noopener">IEA — Global Critical Minerals Outlook ↗</a><a href="https://documents1.worldbank.org/curated/en/099052423172525564/pdf/P16627806f5aa400508f8c0bdcba0878a3e.pdf" target="_blank" rel="noopener">World Bank — Minerals for Climate Action ↗</a></article></div><div class="pilot-limitations"><h3>Pilot limitations</h3><p>This is not a new official CTCN classification. Technology descriptions, type assignments and material links require sector-specific expert validation.</p></div></details></div></section>
+  </main>
+
+  <footer><div class="wrap">© 2026 Luis Guillermo Pinilla Rodríguez · STVDIØ Luis Guillermo · Climate Technology Atlas · Pilot v25</div></footer>
+  <script src="data/ctcn-data.js?v=25"></script>
+  <script src="data/image-manifest.js?v=25"></script>
+  <script src="vendor/plotly.min.js"></script>
+  <script src="atlas.js?v=25"></script>
+  <script defer src="climate-clock.js?v=12"></script>
+</body>
+</html>
