@@ -1,1 +1,0 @@
-window.CTCN_IMAGE_MANIFEST={"default":{"path":"assets/technologies/placeholder.jpg","title":"Technology image placeholder","author":"Temporary placeholder","license":"Temporary project asset","source":"","alt":"Generic placeholder used until a manually selected photograph is assigned","status":"placeholder"}};
