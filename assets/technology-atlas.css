@@ -1,0 +1,9 @@
+
+/* v17 — explanatory copy belongs inside the collapsible icon guide */
+.classification-legend .legend-family-description {
+  margin: .3rem 0 .75rem;
+  max-width: 54ch;
+  color: var(--muted, #66717d);
+  font-size: .79rem;
+  line-height: 1.45;
+}
