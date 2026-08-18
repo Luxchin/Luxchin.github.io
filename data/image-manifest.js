@@ -1,1 +1,0 @@
-window.CTCN_IMAGE_MANIFEST={"default":{"path":"assets/technologies/placeholder.jpg","title":"Technology image","author":"Image under review","license":"Temporary project asset","source":"","alt":"Technology image under review, pending update","status":"placeholder"}};
